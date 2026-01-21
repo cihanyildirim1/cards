@@ -1,0 +1,15 @@
+.productFooter {
+  padding: 3rem 2rem;
+  background-color: #f5f5f5;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.text {
+  font-size: 1rem;
+  color: #666;
+}
