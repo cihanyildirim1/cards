@@ -22,5 +22,3 @@ export function ProductFooter() {
     </div>
   );
 }
-
-export { ProductFooter };
