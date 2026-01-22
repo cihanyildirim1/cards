@@ -442,12 +442,12 @@ export function ParticleTextEffect({
 
   return (
     <div
+      className='hero-container'
       style={{
         position: "relative",
         width: "100vw",
         height: "100vh",
         minHeight: "500px",
-        maxHeight: window.innerWidth < 768 ? "70vh" : "100vh",
         backgroundColor: "#000",
         margin: 0,
         padding: 0,
@@ -462,6 +462,13 @@ export function ParticleTextEffect({
           height: "100%",
         }}
       />
+      <style jsx>{`
+        @media (max-width: 767px) {
+          .hero-container {
+            max-height: 70vh;
+          }
+        }
+      `}</style>
     </div>
   );
 }
