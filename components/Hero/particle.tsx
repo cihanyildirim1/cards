@@ -218,9 +218,11 @@ export function ParticleTextEffect({
     offscreenCanvas.height = canvas.height;
     const offscreenCtx = offscreenCanvas.getContext("2d")!;
 
-    // Draw text
+    // Draw text with responsive font size
     offscreenCtx.fillStyle = "white";
-    offscreenCtx.font = "bold 100px Arial";
+    // Use responsive font size based on canvas width
+    const fontSize = canvas.width < 768 ? canvas.width / 8 : 100;
+    offscreenCtx.font = `bold ${fontSize}px Arial`;
     offscreenCtx.textAlign = "center";
     offscreenCtx.textBaseline = "middle";
     offscreenCtx.fillText(word, canvas.width / 2, canvas.height / 2);
@@ -444,6 +446,8 @@ export function ParticleTextEffect({
         position: "relative",
         width: "100vw",
         height: "100vh",
+        minHeight: "500px",
+        maxHeight: window.innerWidth < 768 ? "70vh" : "100vh",
         backgroundColor: "#000",
         margin: 0,
         padding: 0,
