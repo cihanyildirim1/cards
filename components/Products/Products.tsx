@@ -7,42 +7,42 @@ import Link from "next/link";
 
 export function GlowingEffectDemo() {
   return (
-    <div className='max-w-6xl mx-auto px-4 py-8 bg-black min-h-screen'>
-      <div className='mb-8'>
+    <div className='max-w-7xl mx-auto px-4 sm:px-6 py-8 sm:py-12 bg-black min-h-screen'>
+      <div className='mb-8 sm:mb-12'>
         <Link
           href='/'
           className='inline-flex items-center gap-2 text-white hover:text-gray-300 transition-colors'
         >
           <ArrowLeft className='h-5 w-5' />
-          <span className='text-lg font-semibold'>Back Home</span>
+          <span className='text-base sm:text-lg font-semibold'>Back Home</span>
         </Link>
       </div>
-      <ul className='grid grid-cols-1 md:grid-cols-2 gap-6 list-none'>
+      <div className='grid grid-cols-1 md:grid-cols-2 gap-6 sm:gap-8 md:gap-10 max-w-[900px] mx-auto'>
         <GridItem
-          icon={<Instagram className='h-6 w-6' />}
+          icon={<Instagram className='h-5 w-5' />}
           title='Instagram Card'
           description='Your Instagram, one tap away.'
           price='$24.99'
         />
         <GridItem
-          icon={<Chrome className='h-6 w-6' />}
+          icon={<Chrome className='h-5 w-5' />}
           title='Review Card'
           description='Google Review. One tap.'
           price='$24.99'
         />
         <GridItem
-          icon={<Globe className='h-6 w-6' />}
+          icon={<Globe className='h-5 w-5' />}
           title='Website Card'
           description='Your Website, one tap away.'
           price='$24.99'
         />
         <GridItem
-          icon={<Wand2 className='h-6 w-6' />}
+          icon={<Wand2 className='h-5 w-5' />}
           title='Custom Card'
           description='One card. Any destination.'
           price='$24.99'
         />
-      </ul>
+      </div>
     </div>
   );
 }
@@ -56,35 +56,35 @@ interface GridItemProps {
 
 const GridItem = ({ icon, title, description, price }: GridItemProps) => {
   return (
-    <li className='h-[320px] w-full'>
-      <div className='relative h-full rounded-[1.25rem] border-[0.75px] border-gray-700 p-2 md:rounded-[1.5rem] md:p-3'>
+    <div className='w-full aspect-[1.59/1]'>
+      <div className='relative h-full rounded-lg sm:rounded-xl border border-gray-700/80 p-1.5 sm:p-2 bg-gradient-to-br from-gray-900 via-gray-950 to-black shadow-2xl hover:shadow-blue-500/30 hover:border-gray-600 transition-all duration-300 hover:scale-[1.02] sm:hover:scale-[1.03] hover:-translate-y-1'>
         <GlowingEffect
-          spread={40}
+          spread={30}
           glow={true}
           disabled={false}
-          proximity={64}
+          proximity={56}
           inactiveZone={0.01}
-          borderWidth={3}
+          borderWidth={2}
         />
-        <div className='relative flex h-full flex-col justify-between gap-4 overflow-hidden rounded-xl border-[0.75px] border-gray-700 bg-black p-6 shadow-sm md:p-6'>
-          <div className='relative flex flex-1 flex-col justify-between gap-3'>
-            <div className='w-fit rounded-lg border-[0.75px] border-gray-700 bg-gray-900 p-3 text-white'>
-              {icon}
-            </div>
-            <div className='space-y-3'>
-              <h3 className='pt-0.5 text-xl leading-[1.375rem] font-semibold font-sans tracking-[-0.04em] md:text-2xl md:leading-[1.875rem] text-balance text-white'>
-                {title}
-              </h3>
-              <p className='font-sans text-sm leading-[1.125rem] md:text-base md:leading-[1.375rem] text-gray-400'>
-                {description}
-              </p>
-            </div>
+        <div className='relative flex h-full flex-row items-center gap-2 sm:gap-3 md:gap-4 overflow-hidden rounded-md sm:rounded-lg border border-gray-800/60 bg-gradient-to-br from-gray-950 via-black to-gray-950 px-3 py-3 sm:px-4 sm:py-3.5 md:px-5 md:py-4 shadow-inner backdrop-blur-sm'>
+          <div className='flex-shrink-0 rounded-md sm:rounded-lg border border-gray-600/50 bg-gradient-to-br from-gray-800 via-gray-850 to-gray-900 p-2 sm:p-2.5 text-white shadow-lg'>
+            {icon}
           </div>
-          <div className='pt-2 border-t border-gray-800'>
-            <span className='text-2xl font-bold text-white'>{price}</span>
+          <div className='flex flex-1 flex-col justify-center gap-1 sm:gap-1.5'>
+            <h3 className='text-sm sm:text-base leading-tight font-semibold font-sans tracking-tight text-white'>
+              {title}
+            </h3>
+            <p className='font-sans text-[10px] sm:text-xs leading-relaxed text-gray-400'>
+              {description}
+            </p>
+          </div>
+          <div className='flex-shrink-0 border-l border-gray-700/60 pl-2.5 sm:pl-3 md:pl-4 ml-0.5 sm:ml-1'>
+            <span className='text-base sm:text-lg font-bold text-white tracking-tight'>
+              {price}
+            </span>
           </div>
         </div>
       </div>
-    </li>
+    </div>
   );
 };
